@@ -1,0 +1,104 @@
+package de.punkt.myaktion.data;
+
+import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
+
+import de.punkt.myaktion.model.Aktion;
+import de.punkt.myaktion.model.Konto;
+import de.punkt.myaktion.model.Spende;
+import de.punkt.myaktion.model.Spende.Status;
+
+@SessionScoped
+@Named
+public class AktionListProducer implements Serializable {
+
+	private static final long serialVersionUID = 5223838882539790728L;	
+	private List<Aktion> aktionen;
+	
+	public AktionListProducer() {
+		aktionen = createMockAktionen();
+	}
+	
+	public List<Aktion> getAktionen() {
+		return aktionen;
+	}
+	
+	public List<Aktion> createMockAktionen() {
+		
+		//------- Spende 1
+		Spende spende1 = new Spende();
+		spende1.setSpederName("Heinz SChmidt");
+		spende1.setBetrag(20d);
+		spende1.setQuittung(true);
+		spende1.setStatus(Status.UEBERWIESEN);
+		spende1.setKonto(new Konto(spende1.getSpederName(), "XXX Bank", "123456", "87654321"));
+		
+		//------- Spende 1
+		Spende spende2 = new Spende();
+		spende2.setSpederName("Karl Meier");
+		spende2.setBetrag(30d);
+		spende2.setQuittung(false);
+		spende2.setStatus(Status.In_BEARBEITUNG);
+		spende2.setKonto(new Konto(spende2.getSpederName(), "YYY Bank", "654321", "86427531"));
+		
+		List<Spende> spenden = new LinkedList<>();
+		spenden.add(spende1);
+		spenden.add(spende2);
+		
+		
+		//------- Aktion 1
+		Aktion aktion1 = new Aktion();
+		aktion1.setName("Trikots for A-Jugend");
+		aktion1.setSpendenZiel(1000d);
+		aktion1.setBisherGespendet(258d);
+		aktion1.setSpendenBetrag(20d);
+		aktion1.setId(1L);
+		aktion1.setKonto(new Konto("Max Mustermann", "ABC Bank", "100200300", "12345678"));		
+		aktion1.setSpenden(spenden);
+		
+		//------- Aktion 2
+		Aktion aktion2 = new Aktion();
+		aktion2.setName("Rollstuhl für Maria");
+		aktion2.setSpendenZiel(2500d);
+		aktion2.setBisherGespendet(742d);
+		aktion2.setSpendenBetrag(25d);
+		aktion2.setId(2L);
+		aktion2.setKonto(aktion1.getKonto());		
+		aktion2.setSpenden(spenden);
+		
+		
+		List<Aktion> ret  = new LinkedList<>();
+		ret.add(aktion1);
+		ret.add(aktion2);
+		return ret;
+	}
+	
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
