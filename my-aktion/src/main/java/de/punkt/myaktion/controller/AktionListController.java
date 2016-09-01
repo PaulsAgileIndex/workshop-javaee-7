@@ -33,7 +33,7 @@ public class AktionListController implements Serializable {
 		return Pages.SPENDE_LIST;
 	}
 	
-	public void doDeleteAktion() {
-		System.out.println("Aktion löschen noch nicht implementiert");
+	public void doDeleteAktion(Aktion aktion) {
+		System.out.println("Aktion löschen noch nicht implementiert " +aktion);
 	}
 }
