@@ -1,0 +1,61 @@
+package de.punkt.myaktion.model;
+
+public class Spende {
+	
+	private Double betrag;
+	private String spederName;
+	private Boolean quittung;
+	private Status status;
+	private Konto konto;
+
+	public enum Status {
+		UEBERWIESEN, In_BEARBEITUNG;
+	}
+	
+	public Spende(){
+		this.konto = new Konto();
+	}
+
+	public Double getBetrag() {
+		return betrag;
+	}
+
+	public void setBetrag(Double betrag) {
+		this.betrag = betrag;
+	}
+
+	public String getSpederName() {
+		return spederName;
+	}
+
+	public void setSpederName(String spederName) {
+		this.spederName = spederName;
+	}
+
+	public Boolean getQuittung() {
+		return quittung;
+	}
+
+	public void setQuittung(Boolean quittung) {
+		this.quittung = quittung;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public Konto getKonto() {
+		return konto;
+	}
+
+	public void setKonto(Konto konto) {
+		this.konto = konto;
+	}
+	
+	
+	
+}
