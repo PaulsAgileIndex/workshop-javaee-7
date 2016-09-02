@@ -3,8 +3,10 @@ package de.punkt.myaktion.controller;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
+import de.punkt.myaktion.controller.AktionEditController.Mode;
 import de.punkt.myaktion.model.Aktion;
 
 @SessionScoped
@@ -13,13 +15,18 @@ public class AktionListController implements Serializable {
 
 	private static final long serialVersionUID = 1452550355094408745L;
 	
+	@Inject
+	private AktionEditController aktionEditController;
+	
 	public String doAddAktion() {
 		System.out.println("Add Aktion");
+		aktionEditController.setAktionToEdit(Mode.ADD);
 		return Pages.AKTION_EDIT;
 	}
 	
 	public String doEditAktion(Aktion aktion) {
 		System.out.println("Edit Aktion " +aktion);
+		aktionEditController.setAktionToEdit(Mode.EDIT, aktion);
 		return Pages.AKTION_EDIT;
 	}
 
