@@ -31,19 +31,19 @@ public class AktionListProducer implements Serializable {
 		
 		//------- Spende 1
 		Spende spende1 = new Spende();
-		spende1.setSpederName("Heinz SChmidt");
+		spende1.setSpenderName("Heinz SChmidt");
 		spende1.setBetrag(20d);
 		spende1.setQuittung(true);
 		spende1.setStatus(Status.UEBERWIESEN);
-		spende1.setKonto(new Konto(spende1.getSpederName(), "XXX Bank", "123456", "87654321"));
+		spende1.setKonto(new Konto(spende1.getSpenderName(), "XXX Bank", "123456", "87654321"));
 		
 		//------- Spende 1
 		Spende spende2 = new Spende();
-		spende2.setSpederName("Karl Meier");
+		spende2.setSpenderName("Karl Meier");
 		spende2.setBetrag(30d);
 		spende2.setQuittung(false);
 		spende2.setStatus(Status.In_BEARBEITUNG);
-		spende2.setKonto(new Konto(spende2.getSpederName(), "YYY Bank", "654321", "86427531"));
+		spende2.setKonto(new Konto(spende2.getSpenderName(), "YYY Bank", "654321", "86427531"));
 		
 		List<Spende> spenden = new LinkedList<>();
 		spenden.add(spende1);

@@ -3,7 +3,7 @@ package de.punkt.myaktion.model;
 public class Spende {
 	
 	private Double betrag;
-	private String spederName;
+	private String spenderName;
 	private Boolean quittung;
 	private Status status;
 	private Konto konto;
@@ -24,12 +24,12 @@ public class Spende {
 		this.betrag = betrag;
 	}
 
-	public String getSpederName() {
-		return spederName;
+	public String getSpenderName() {
+		return spenderName;
 	}
 
-	public void setSpederName(String spederName) {
-		this.spederName = spederName;
+	public void setSpenderName(String spenderName) {
+		this.spenderName = spenderName;
 	}
 
 	public Boolean getQuittung() {
