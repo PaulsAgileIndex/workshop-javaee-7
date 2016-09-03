@@ -21,6 +21,9 @@ public class AktionListController implements Serializable {
 	@Inject
 	private SpendeListController spendeListController;
 	
+	@Inject 
+	SpendeFormEditController spendeFromEditController;
+	
 	public String doAddAktion() {
 		System.out.println("Add Aktion");
 		aktionEditController.setAktionToEdit(Mode.ADD);
@@ -35,6 +38,7 @@ public class AktionListController implements Serializable {
 
 	public String doEditSpendeForm(Aktion aktion) {
 		System.out.println("Edit Spende Form " +aktion);
+		spendeFromEditController.setAktion(aktion);
 		return Pages.SPENDE_FORM_EDIT;
 	}
 	
