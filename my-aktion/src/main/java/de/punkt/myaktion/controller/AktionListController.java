@@ -14,6 +14,7 @@ import de.punkt.myaktion.model.Aktion;
 public class AktionListController implements Serializable {
 
 	private static final long serialVersionUID = 1452550355094408745L;
+	private Aktion aktionToDelete;
 	
 	@Inject
 	private AktionEditController aktionEditController;
@@ -49,6 +50,11 @@ public class AktionListController implements Serializable {
 	}
 	
 	public void doDeleteAktion(Aktion aktion) {
-		System.out.println("Aktion löschen noch nicht implementiert " +aktion);
+		this.aktionToDelete = aktion;
+		System.out.println("Aktion zum löschen vorgemerkt");
+	}
+	
+	public void commitDeleteAktion(){
+		System.out.println("Aktion löschen ncoh nicht implementiert");
 	}
 }
