@@ -16,6 +16,7 @@
 			<p:tabView id="tabView">
 				<p:tab title="Allgemein">
 					<p:panelGrid columns="3">
+					
 						<p:outputLabel value="Name" />
 						<p:inputText id="a_name" value="#{aktionEditController.aktion.name}" validatorMessage="Der Name einer Aktion muss min. 4 und darf max. 30 Zeichen lang sein">
 							<f:validateRequired />
@@ -47,35 +48,35 @@
 					</p:panelGrid>		
 				</p:tab>
 				<p:tab title="Bankverbindung">	
-				<p:panelGrid columns="3">
-									
-					<p:outputLabel value="Name" />
-					<p:inputText id="b_name" value="#{aktionEditController.aktion.konto.name}">
-						<f:validateRequired />
-					</p:inputText>
-					<p:message for="b_name" style="color: red;" />
-					
-					
-					<p:outputLabel value="Konto-Nr.:" />
-					<p:inputText id="b_konto" value="#{aktionEditController.aktion.konto.kontoNr}">
-						<f:validateRequired />
-					</p:inputText>
-					<p:message for="b_konto" style="color: red;" />
-					
-					
-					<p:outputLabel value="BLZ" />
-					<p:inputText id="b_blz" value="#{aktionEditController.aktion.konto.blz}">
-						<f:validateRequired />
-					</p:inputText>
-					<p:message for="b_blz" style="color: red;" />
-					
-					<p:outputLabel value="Name der Bank" />
-					<p:inputText id="b_name_bank" value="#{aktionEditController.aktion.konto.nameDerBank}">
-						<f:validateRequired />
-					</p:inputText>
-					<p:message for="b_name_bank" style="color: red;" />				
-				</p:panelGrid>	
-			</p:tab>
+					<p:panelGrid columns="3">
+										
+						<p:outputLabel value="Name" />
+						<p:inputText id="b_name" value="#{aktionEditController.aktion.konto.name}">
+							<f:validateRequired />
+						</p:inputText>
+						<p:message for="b_name" style="color: red;" />
+						
+						
+						<p:outputLabel value="Konto-Nr.:" />
+						<p:inputText id="b_konto" value="#{aktionEditController.aktion.konto.kontoNr}">
+							<f:validateRequired />
+						</p:inputText>
+						<p:message for="b_konto" style="color: red;" />
+						
+						
+						<p:outputLabel value="BLZ" />
+						<p:inputText id="b_blz" value="#{aktionEditController.aktion.konto.blz}">
+							<f:validateRequired />
+						</p:inputText>
+						<p:message for="b_blz" style="color: red;" />
+						
+						<p:outputLabel value="Name der Bank" />
+						<p:inputText id="b_name_bank" value="#{aktionEditController.aktion.konto.nameDerBank}">
+							<f:validateRequired />
+						</p:inputText>
+						<p:message for="b_name_bank" style="color: red;" />				
+					</p:panelGrid>	
+				</p:tab>
 			</p:tabView>
 			<p:commandButton value="Speichern" ajax="false" action="#{aktionEditController.doSave}" />
 			<p:commandButton value="Abbrechen" ajax="false" immediate="true" action="#{aktionEditController.doCancel}" />
