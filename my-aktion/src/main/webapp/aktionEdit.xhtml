@@ -22,7 +22,7 @@
 							<f:validateRequired />
 					 		<f:validateLength minimum="4" maximum="30" />
 						</p:inputText>				
-						<p:message for="a_name" style="color: red;" />
+						<p:message for="a_name"  />
 						
 						
 						<p:outputLabel value="Spendenziel" />
@@ -33,7 +33,7 @@
 								<f:validateDoubleRange minimum="10.0" />
 							</p:inputText> EUR
 						</h:panelGroup>
-						<p:message for="a_spendenziel" style="color: red;" />
+						<p:message for="a_spendenziel" />
 							
 							
 						<h:outputLabel value="Spendenbetrag" />	
@@ -44,7 +44,7 @@
 								<f:validateDoubleRange minimum="1.0"></f:validateDoubleRange>
 							</p:inputText> EUR
 						</h:panelGroup>
-						<p:message for="a_spendenbetrag" style="color: red;" />		
+						<p:message for="a_spendenbetrag"  />		
 					</p:panelGrid>		
 				</p:tab>
 				<p:tab title="Bankverbindung">	
@@ -54,27 +54,27 @@
 						<p:inputText id="b_name" value="#{aktionEditController.aktion.konto.name}">
 							<f:validateRequired />
 						</p:inputText>
-						<p:message for="b_name" style="color: red;" />
+						<p:message for="b_name"  />
 						
 						
 						<p:outputLabel value="Konto-Nr.:" />
 						<p:inputText id="b_konto" value="#{aktionEditController.aktion.konto.kontoNr}">
 							<f:validateRequired />
 						</p:inputText>
-						<p:message for="b_konto" style="color: red;" />
+						<p:message for="b_konto"  />
 						
 						
 						<p:outputLabel value="BLZ" />
 						<p:inputText id="b_blz" value="#{aktionEditController.aktion.konto.blz}">
 							<f:validateRequired />
 						</p:inputText>
-						<p:message for="b_blz" style="color: red;" />
+						<p:message for="b_blz"  />
 						
 						<p:outputLabel value="Name der Bank" />
 						<p:inputText id="b_name_bank" value="#{aktionEditController.aktion.konto.nameDerBank}">
 							<f:validateRequired />
 						</p:inputText>
-						<p:message for="b_name_bank" style="color: red;" />				
+						<p:message for="b_name_bank"  />				
 					</p:panelGrid>	
 				</p:tab>
 			</p:tabView>
