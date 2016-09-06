@@ -4,13 +4,18 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
+import javax.enterprise.event.Observes;
+import javax.enterprise.inject.Produces;
 import javax.inject.Named;
 
 import de.punkt.myaktion.model.Aktion;
 import de.punkt.myaktion.model.Konto;
 import de.punkt.myaktion.model.Spende;
 import de.punkt.myaktion.model.Spende.Status;
+import de.punkt.myaktion.util.Events.Added;
+import de.punkt.myaktion.util.Events.Deleted;
 
 @SessionScoped
 @Named
@@ -19,10 +24,24 @@ public class AktionListProducer implements Serializable {
 	private static final long serialVersionUID = 5223838882539790728L;	
 	private List<Aktion> aktionen;
 	
-	public AktionListProducer() {
+	@PostConstruct
+	public void init(){
 		aktionen = createMockAktionen();
 	}
 	
+//	public AktionListProducer() {
+//		aktionen = createMockAktionen();
+//	}
+	
+	public void onAktionAdded(@Observes @Added Aktion aktion){
+		getAktionen().add(aktion);
+	}
+	
+	public void onAktionDeleted(@Observes @Deleted Aktion aktion){
+		getAktionen().remove(aktion);
+	}
+	
+	@Produces	
 	public List<Aktion> getAktionen() {
 		return aktionen;
 	}

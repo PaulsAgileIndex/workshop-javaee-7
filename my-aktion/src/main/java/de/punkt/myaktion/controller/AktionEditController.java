@@ -3,11 +3,13 @@ package de.punkt.myaktion.controller;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import de.punkt.myaktion.data.AktionListProducer;
 import de.punkt.myaktion.model.Aktion;
+import de.punkt.myaktion.util.Events.Added;
 
 @SessionScoped
 @Named
@@ -15,8 +17,13 @@ public class AktionEditController implements Serializable {
 
 	private static final long serialVersionUID = 9049238986592472016L;
 	
-	@Inject
-	private AktionListProducer aktionListProducer;
+//	@Inject
+//	private AktionListProducer aktionListProducer;
+	
+	@Inject 
+	@Added
+	private Event<Aktion> aktionAddEventSrc;
+	
 	
 	public enum Mode{
 		EDIT, ADD
@@ -44,7 +51,8 @@ public class AktionEditController implements Serializable {
 	
 	public String doSave(){
 		if(getMode() == Mode.ADD){
-			aktionListProducer.getAktionen().add(aktion);
+//			aktionListProducer.getAktionen().add(aktion);
+			aktionAddEventSrc.fire(aktion);
 		}
 		return Pages.AKTION_LIST;
 	}

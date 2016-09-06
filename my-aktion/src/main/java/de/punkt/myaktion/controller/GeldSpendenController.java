@@ -1,10 +1,13 @@
 package de.punkt.myaktion.controller;
 
 import java.io.Serializable;
+import java.util.logging.Logger;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import de.punkt.myaktion.model.Spende;
@@ -19,9 +22,20 @@ public class GeldSpendenController implements Serializable {
 	private Spende spende;
 	private Long aktionId;
 	
-	public GeldSpendenController(){
+	@Inject
+	FacesContext facesContext;
+	
+	@Inject
+	Logger logger;
+	
+	@PostConstruct
+	public void init(){
 		this.spende = new Spende();
 	}
+	
+//	public GeldSpendenController(){
+//		this.spende = new Spende();
+//	}
 
 	public String getTextColor() {
 		return textColor;
@@ -56,9 +70,10 @@ public class GeldSpendenController implements Serializable {
 	}
 	
 	public String doSpende(){
+		logger.info(spende.getSpenderName() +" hat " +spende.getBetrag() +" Euro gespendet.");
 		FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO, "Vielen Dank für die Spende", null);
-		FacesContext.getCurrentInstance().addMessage(null, facesMessage);
-		this.spende = new Spende();		
+		facesContext.addMessage(null, facesMessage);
+		init();
 		return Pages.GELD_SPENDEN;
 	}
 	

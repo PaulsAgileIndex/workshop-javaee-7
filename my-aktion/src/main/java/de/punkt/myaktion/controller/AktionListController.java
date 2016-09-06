@@ -3,11 +3,13 @@ package de.punkt.myaktion.controller;
 import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
+import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import de.punkt.myaktion.controller.AktionEditController.Mode;
 import de.punkt.myaktion.model.Aktion;
+import de.punkt.myaktion.util.Events.Deleted;
 
 @SessionScoped
 @Named
@@ -23,7 +25,11 @@ public class AktionListController implements Serializable {
 	private SpendeListController spendeListController;
 	
 	@Inject 
-	SpendeFormEditController spendeFromEditController;
+	private SpendeFormEditController spendeFromEditController;
+	
+	@Inject
+	@Deleted
+	private Event<Aktion> aktionDeleteEventSrc;
 	
 	public String doAddAktion() {
 		System.out.println("Add Aktion");
@@ -55,6 +61,7 @@ public class AktionListController implements Serializable {
 	}
 	
 	public void commitDeleteAktion(){
-		System.out.println("Aktion löschen ncoh nicht implementiert");
+//		System.out.println("Aktion löschen ncoh nicht implementiert");
+		aktionDeleteEventSrc.fire(aktionToDelete);
 	}
 }

@@ -4,10 +4,12 @@ import java.io.Serializable;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
 import de.punkt.myaktion.model.Aktion;
+import de.punkt.myaktion.util.Events.MyRequest;
 
 @SessionScoped
 @Named
@@ -18,12 +20,16 @@ public class SpendeFormEditController implements Serializable {
 	private String bgColor = "ffffff";
 	private Aktion aktion;
 	
+	@Inject
+	@MyRequest
+	private HttpServletRequest req;
+	
 	public String doOk(){
 		return Pages.AKTION_LIST;
 	}
 	
 	private String getAppUrl(){
-		HttpServletRequest req = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
+//		HttpServletRequest req = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 		String scheme = req.getScheme();
 		String serverName = req.getServerName();
 		int serverPort = req.getServerPort();
