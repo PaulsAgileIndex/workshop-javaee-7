@@ -25,7 +25,7 @@ public class AktionListController implements Serializable {
 	private SpendeListController spendeListController;
 	
 	@Inject 
-	private SpendeFormEditController spendeFromEditController;
+	private SpendeFormEditController spendeFormEditController;
 	
 	@Inject
 	@Deleted
@@ -45,7 +45,7 @@ public class AktionListController implements Serializable {
 
 	public String doEditSpendeForm(Aktion aktion) {
 		System.out.println("Edit Spende Form " +aktion);
-		spendeFromEditController.setAktion(aktion);
+		spendeFormEditController.setAktion(aktion);
 		return Pages.SPENDE_FORM_EDIT;
 	}
 	
@@ -60,8 +60,9 @@ public class AktionListController implements Serializable {
 		System.out.println("Aktion zum löschen vorgemerkt");
 	}
 	
-	public void commitDeleteAktion(){
+	public String commitDeleteAktion(){
 //		System.out.println("Aktion löschen ncoh nicht implementiert");
 		aktionDeleteEventSrc.fire(aktionToDelete);
+		return Pages.AKTION_LIST;
 	}
 }

@@ -14,7 +14,7 @@
 		<h:form>
 			<h:panelGrid columns="2">
 				<h:outputLabel value="Hintergrundfarbe:" />				
-				<p:colorPicker id="bgColor" value="#{spendeFromEditController.bgColor}" widgetVar="bgPicker" />	
+				<p:colorPicker id="bgColor" value="#{spendeFormEditController.bgColor}" widgetVar="bgPicker" />	
 
 				<h:outputLabel value="Textfarbe:" />				
 				<p:colorPicker id="textColor" value="#{spendeFormEditController.textColor}" widgetVar="textPicker" />	
@@ -22,8 +22,10 @@
 				<h:outputLabel value="URL des Formulars" />
 				<p:inputTextarea id="url" rows="6" cols="30" readonly="true" value="#{spendeFormEditController.url}" />
 			</h:panelGrid>
-			<p:commandButton value="Update URL" update="url" />
+<!-- 			<p:commandButton value="Update URL"  -->
+<!-- 				onclick="updateUrl()" /> -->
 			<p:commandButton value="OK" action="#{spendeFormEditController.doOk}" ajax="false" />
+			<p:commandButton value="Update URL" update="url" />
 		</h:form>
 	
 	</ui:define>	

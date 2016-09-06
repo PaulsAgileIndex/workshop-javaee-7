@@ -17,28 +17,32 @@
 				<p:tab title="Allgemein">
 					<p:panelGrid columns="3">
 					
-						<p:outputLabel value="Name" />
-						<p:inputText id="a_name" value="#{aktionEditController.aktion.name}" validatorMessage="Der Name einer Aktion muss min. 4 und darf max. 30 Zeichen lang sein">
+						<p:outputLabel value="Name (Aktion)" />
+						<p:inputText id="a_name" 
+							value="#{aktionEditController.aktion.name}" 
+							validatorMessage="Der Name einer Aktion muss min. 4 und darf max. 30 Zeichen lang sein">
 							<f:validateRequired />
 					 		<f:validateLength minimum="4" maximum="30" />
 						</p:inputText>				
-						<p:message for="a_name"  />
-						
+						<p:message for="a_name"  />						
 						
 						<p:outputLabel value="Spendenziel" />
 						<h:panelGroup>
-							<p:inputText id="a_spendenziel" value="#{aktionEditController.aktion.spendenZiel}" validatorMessage="Das Spendenziel für die Aktion muss min. 10 Euro sein">
+							<p:inputText id="a_spendenziel" 
+								value="#{aktionEditController.aktion.spendenZiel}" 
+								validatorMessage="Das Spendenziel für die Aktion muss min. 10 Euro sein">
 								<f:convertNumber maxFractionDigits="2" minFractionDigits="2" />
 								<f:validateRequired />
 								<f:validateDoubleRange minimum="10.0" />
 							</p:inputText> EUR
 						</h:panelGroup>
-						<p:message for="a_spendenziel" />
-							
+						<p:message for="a_spendenziel" />							
 							
 						<h:outputLabel value="Spendenbetrag" />	
 						<h:panelGroup>
-							<p:inputText id="a_spendenbetrag" value="#{aktionEditController.aktion.spendenBetrag}" validatorMessage="Der Spendenbetrag muss min. 1 Euro sein">
+							<p:inputText id="a_spendenbetrag" 
+								value="#{aktionEditController.aktion.spendenBetrag}" 
+								validatorMessage="Der Spendenbetrag muss min. 1 Euro sein">
 								<f:convertNumber maxFractionDigits="2" minFractionDigits="2" />
 								<f:validateRequired />
 								<f:validateDoubleRange minimum="1.0"></f:validateDoubleRange>
@@ -50,36 +54,42 @@
 				<p:tab title="Bankverbindung">	
 					<p:panelGrid columns="3">
 										
-						<p:outputLabel value="Name" />
-						<p:inputText id="b_name" value="#{aktionEditController.aktion.konto.name}">
+						<p:outputLabel value="Name (Kontoinhaber)" />
+						<p:inputText id="b_name" 
+							value="#{aktionEditController.aktion.konto.name}">
 							<f:validateRequired />
 						</p:inputText>
 						<p:message for="b_name"  />
 						
 						
 						<p:outputLabel value="Konto-Nr.:" />
-						<p:inputText id="b_konto" value="#{aktionEditController.aktion.konto.kontoNr}">
+						<p:inputText id="b_konto" 
+							value="#{aktionEditController.aktion.konto.kontoNr}">
 							<f:validateRequired />
 						</p:inputText>
 						<p:message for="b_konto"  />
 						
 						
 						<p:outputLabel value="BLZ" />
-						<p:inputText id="b_blz" value="#{aktionEditController.aktion.konto.blz}">
+						<p:inputText id="b_blz" 
+							value="#{aktionEditController.aktion.konto.blz}">
 							<f:validateRequired />
 						</p:inputText>
 						<p:message for="b_blz"  />
 						
 						<p:outputLabel value="Name der Bank" />
-						<p:inputText id="b_name_bank" value="#{aktionEditController.aktion.konto.nameDerBank}">
+						<p:inputText id="b_name_bank" 
+							value="#{aktionEditController.aktion.konto.nameDerBank}">
 							<f:validateRequired />
 						</p:inputText>
 						<p:message for="b_name_bank"  />				
 					</p:panelGrid>	
 				</p:tab>
 			</p:tabView>
-			<p:commandButton value="Speichern" ajax="false" action="#{aktionEditController.doSave}" />
-			<p:commandButton value="Abbrechen" ajax="false" immediate="true" action="#{aktionEditController.doCancel}" />
+			<p:commandButton value="Speichern" ajax="false" 
+				action="#{aktionEditController.doSave}" />
+			<p:commandButton value="Abbrechen" immediate="true" ajax="false"
+				action="#{aktionEditController.doCancel}" />
 		</h:form>
 	</ui:define>
 </ui:composition>

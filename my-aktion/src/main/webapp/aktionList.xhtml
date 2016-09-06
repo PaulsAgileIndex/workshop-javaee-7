@@ -40,21 +40,27 @@
 					</h:outputText>
 				</p:column>
 				<p:column>
-					<p:commandLink value="Editieren" action="#{aktionListController.doEditAktion(aktion)}" ajax="false" />
+					<p:commandLink value="Editieren" 
+						action="#{aktionListController.doEditAktion(aktion)}" ajax="false" />
 				</p:column>
 				<p:column>
-					<p:commandLink value="Spendenlsite" action="#{aktionListController.doListSpende(aktion)}" ajax="false" />
+					<p:commandLink value="Spendenlsite" 
+						action="#{aktionListController.doListSpende(aktion)}" ajax="false" />
 				</p:column>
 				<p:column>
-					<p:commandLink value="Formular" action="#{aktionListController.doEditSpendeForm(aktion)}" ajax="false" />
+					<p:commandLink value="Formular" 
+						action="#{aktionListController.doEditSpendeForm(aktion)}" 
+						ajax="false" />
 				</p:column>
 			</p:dataTable>
 			
-			<p:commandButton value="Aktion hinzufügen" action="#{aktionListController.doAddAktion}" />
+			<p:commandButton value="Aktion hinzufügen" 
+				action="#{aktionListController.doAddAktion}"  ajax="false"/>
 			
 			<p:confirmDialog message="Aktion wirklich löschen?" header="Aktion löschen" severity="alert" widgetVar="confirmation">
-				<p:commandButton value="Ja" onclick="confirmation.hide()" actionListener="#{aktionListController.commitDeleteAktion}" />
-				<p:commandButton value="Nein" onclick="confirmation.hide()" />				
+				<p:commandButton value="Ja" onclick="confirmation.hide()" actionListener="#{aktionListController.commitDeleteAktion}"  ajax="false"/>
+				<p:commandButton value="Nein" 
+					onclick="confirmation.hide()" type="button"/>				
 			</p:confirmDialog>			
 		</h:form>
 	</ui:define>
